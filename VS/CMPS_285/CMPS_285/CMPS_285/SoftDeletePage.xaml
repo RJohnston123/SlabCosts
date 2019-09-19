@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CMPS_285.SoftDeletePage" 
+            x:Name="YourView"
+            Title="Soft Delete Page">
+
+    <ContentPage Title="Client Page" BackgroundColor="white">
+
+        
+        <StackLayout HorizontalOptions="Start" Orientation="Vertical" BackgroundColor="#e4edf2">
+
+            <!--Start-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+                <SearchBar Placeholder="Search Client..." Text="{Binding SearchText}" HeightRequest="30" IsVisible="{Binding ShowSearch}" SearchCommand="{Binding SearchedTextCommand}" Margin="0" 
+                           Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Search" Command="{Binding SearchedTextCommand}" IsVisible="{Binding ShowSearch}" Margin="0" Grid.Row="0" Grid.Column="1"/>
+
+            </Grid>
+
+            <ListView ItemsSource="{Binding SearchedClientList}" HasUnevenRows="True" IsVisible="{Binding SearchListVisibility}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF" >
+
+                                <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <BoxView Color="{Binding Color}" Grid.Column="2" Grid.RowSpan="6" CornerRadius="10"/>
+
+                                    <Label Text="{Binding Status}" Grid.Row="0" Grid.Column="0" FontSize="Medium" TextColor="{Binding StatusColor}" Font="Bold,20"/>
+
+                                    <Label Text = "Name:" Grid.Row="1"  Grid.Column="0"  FontSize="Small" Grid.ColumnSpan="2" Grid.RowSpan="2" TextColor="Black"/>
+                                    <Label Text="{Binding Name}" TextColor="Black" Grid.Row="1" Grid.Column="1" FontSize="Small"/>
+
+                                    <Label Text = "Phone #:" Grid.Row="2" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding PhoneNumber}" TextColor="Black" Grid.Row="2" Grid.Column="1" FontSize="Small"/>
+
+                                    <Label Text = "Client Address:" Grid.Row="3" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding Address}" Grid.Row="3" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Email:" Grid.Row="4" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding Email}" Grid.Row="4" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Estimate Total:" Grid.Row="5" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding FormattedTotal}" Grid.Row="5" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                </Grid>
+
+
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.InfoCommand, Source={x:Reference YourView}}" CommandParameter="{Binding .}" 
+               Text="Edit Client" IsDestructive="True"/>
+                                <MenuItem Command="{Binding Path=BindingContext.OptionCommand, Source={x:Reference YourView}}" CommandParameter="{Binding .}"
+               Text="Edit Jobs" IsDestructive="True"/>
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+            <ListView ItemsSource="{Binding ClientList}" HasUnevenRows="True" IsVisible="{Binding ClientListVisibility}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF" >
+
+                                <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <BoxView Color="{Binding Color}" Grid.Column="2" Grid.RowSpan="6" CornerRadius="10"/>
+
+                                    <Label Text="{Binding Status}" Grid.Row="0" Grid.Column="0" FontSize="Medium" TextColor="{Binding StatusColor}" Font="Bold,20"/>
+
+                                    <Label Text = "Name:" Grid.Row="1"  Grid.Column="0"  FontSize="Small" Grid.ColumnSpan="2" Grid.RowSpan="2" TextColor="Black"/>
+                                    <Label Text="{Binding Name}" TextColor="Black" Grid.Row="1" Grid.Column="1" FontSize="Small"/>
+
+                                    <Label Text = "Phone #:" Grid.Row="2" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding PhoneNumber}" TextColor="Black" Grid.Row="2" Grid.Column="1" FontSize="Small"/>
+
+                                    <Label Text = "Client Address:" Grid.Row="3" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding Address}" Grid.Row="3" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Email:" Grid.Row="4" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding Email}" Grid.Row="4" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Estimate Total:" Grid.Row="5" Grid.Column="0" FontSize="Small" TextColor="Black"/>
+                                    <Label Text="{Binding FormattedTotal}" Grid.Row="5" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.RestoreCommand, Source={x:Reference YourView}}" CommandParameter="{Binding .}" 
+               Text="Restore" IsDestructive="True"/>
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage Title="Job Estimate Page">
+        
+
+        <StackLayout x:Name="MainLayout2" HorizontalOptions="Start" Orientation="Vertical" BackgroundColor="#e4edf2">
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto"/>
+
+                </Grid.ColumnDefinitions>
+                <SearchBar Placeholder="Search Estimate..." Text="{Binding ESearchText}" HeightRequest="30" IsVisible="{Binding EShowSearch}" SearchCommand="{Binding ESearchedTextCommand}" 
+                           Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Search" Command="{Binding ESearchedTextCommand}" IsVisible="{Binding EShowSearch}" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+
+            <ListView ItemsSource="{Binding ESearchedClientList}" HasUnevenRows="True" IsVisible="{Binding ESearchListVisibility}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF" >
+
+                                <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <BoxView Color="{Binding Color}" Grid.Column="2" Grid.RowSpan="3" CornerRadius="10"/>
+
+                                    <Label Text="{Binding Status}" Grid.Row="0" Grid.Column="0" FontSize="Medium" TextColor="{Binding StatusColor}" Font="Bold,20"/>
+
+                                    <Label Text = "Estimate Name:" Grid.Row="1" Grid.Column="0" FontSize="Small" Grid.ColumnSpan="2" Grid.RowSpan="2" TextColor="Black"/>
+                                    <Label Text="{Binding EstimateName}"  Grid.Row="1" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Estimate Total:" Grid.Row="2" Grid.Column="0" FontSize="Small" TextColor="Black" />
+                                    <Label Text="{Binding FormattedTotal}" Grid.Row="2" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                </Grid>
+
+
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.RestoreCommand, Source={x:Reference YourView}}" CommandParameter="{Binding .}"
+               Text="Restore" IsDestructive="True"/>
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <ListView ItemsSource="{Binding EstimateList}" HasUnevenRows="True" IsVisible="{Binding EstimateListVisibility}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF">
+
+                                <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <BoxView Color="{Binding Color}" Grid.Column="2" Grid.RowSpan="3" CornerRadius="10"/>
+
+                                    <Label Text="{Binding Status}" Grid.Row="0" Grid.Column="0" FontSize="Medium" TextColor="{Binding StatusColor}" Font="Bold,20"/>
+
+                                    <Label Text = "Estimate Name:" Grid.Row="1" Grid.Column="0" FontSize="Small" Grid.ColumnSpan="2" Grid.RowSpan="2" TextColor="Black"/>
+                                    <Label Text="{Binding EstimateName}"  Grid.Row="1" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                    <Label Text = "Estimate Total:" Grid.Row="2" Grid.Column="0" FontSize="Small" TextColor="Black" />
+                                    <Label Text="{Binding FormattedTotal}" Grid.Row="2" Grid.Column="1" FontSize="Small" TextColor="Black"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.RestoreCommand, Source={x:Reference YourView}}" CommandParameter="{Binding .}"
+               Text="Restore" IsDestructive="True"/>
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

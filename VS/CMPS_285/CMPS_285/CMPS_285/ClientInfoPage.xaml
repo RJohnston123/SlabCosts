@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMPS_285.ClientInfoPage"
+             Title="Client's Info Page"
+             x:Name="YourView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   Name="Save" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#e4edf2">
+            
+            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="195" />
+
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text = "Name:" Grid.Row="0" Grid.Column="0" FontSize="Medium" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Editor Text="{Binding Client.Name}" x:Name="nameEntry" AutoSize="TextChanges" Grid.Row="0" Grid.Column="1" FontSize="Small"/>
+            <Label Text = "Phone #:" Grid.Row="1" Grid.Column="0" FontSize="Medium" />
+                <Editor Text="{Binding Client.PhoneNumber}" x:Name="phoneEntry" MaxLength="35" Grid.Row="1" Grid.Column="1" FontSize="Small" Keyboard="Numeric"/>
+            <Label Text = "Address:" Grid.Row="3" Grid.Column="0" FontSize="Medium"/>
+            <Editor Text="{Binding Client.Address}" x:Name="addressEntry" MaxLength="35" Grid.Row="3" Grid.Column="1" FontSize="Small"/>
+            <Label Text = "Email:" Grid.Row="2" Grid.Column="0" FontSize="Medium"/>
+            <Editor Text="{Binding Client.Email}" x:Name="emailEntry" MaxLength="35" Grid.Row="2" Grid.Column="1" FontSize="Small"/>
+            <Label Text = "Status:" Grid.Row="4" Grid.Column="0" FontSize="Medium"/>
+            <Picker Title="Set Client Status" ItemsSource="{Binding StatusList}" SelectedItem="{Binding Client.Status}" Grid.Row="4" Grid.Column="1"></Picker>
+        </Grid>
+            <Button Text="Hide Additional Information" BackgroundColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand" Command="{Binding HideCommand}" IsVisible="{Binding ItIsVisible}"/>
+            <Button Text="Show Additonal Information" BackgroundColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand"  Command="{Binding ShowCommand}" IsVisible="{Binding ItIsNotVisible}"/>
+            <Editor Margin="0" HeightRequest="250" WidthRequest="175" IsVisible="{Binding ItIsVisible}" Text="{Binding Client.Description}" BackgroundColor="#f2f6f7"/>
+            <Label Text = "{Binding ErrorMsgOptionName}"  Grid.Row="5" Grid.Column="0" FontSize="Small" TextColor="Red"  IsVisible="{Binding ErrorOptionNameVis}"/>
+
+            <StackLayout Orientation="Horizontal">
+            <Button Text="Add Picture" BackgroundColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand" Command="{Binding PicCommand}"/>
+            <Button Text="Take Picture" BackgroundColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand" Command="{Binding TakePicCommand}"/>
+            </StackLayout>
+            
+            <ListView ItemsSource="{Binding PictureListConverted}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF" >
+                                <Image Source="{Binding .}" Aspect="AspectFit" Grid.RowSpan="1" HeightRequest="220" WidthRequest="220"/>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.ViewPicCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+                                 Text="View Picture" IsDestructive="True" />
+                                <MenuItem Command="{Binding Path=BindingContext.RemovePicCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+                                 Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

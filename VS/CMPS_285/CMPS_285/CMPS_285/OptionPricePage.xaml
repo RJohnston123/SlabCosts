@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMPS_285.OptionPricePage"
+             Title="Data Prices Page">
+
+    <ContentPage Title="Green">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   Name="Save and Return" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+    </ContentPage.ToolbarItems>
+
+        <StackLayout>
+            <ScrollView>
+                <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Driveway M:" FontSize="16" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="0" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DrivewayGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway B:"  FontSize="16" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DrivewayGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway MIN:"  FontSize="16" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DrivewayGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace M:" FontSize="16" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="3" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DriveReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace B:" FontSize="16" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="4" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DriveReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace MIN:" FontSize="16" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="5" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DriveReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Patio M:" FontSize="16" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="6" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry >
+
+                        <Label Text="Patio B:" FontSize="16" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="7" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Patio MIN:" FontSize="16" Grid.Row="8" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="8" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Patio Replace M:" FontSize="16" Grid.Row="9" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="9" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Patio Replace B:" FontSize="16" Grid.Row="10" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="10" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Patio Replace MIN:" FontSize="16" Grid.Row="11" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="11" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck M:" FontSize="16" Grid.Row="12" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="12" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck B:" FontSize="16" Grid.Row="13" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="13" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck MIN:" FontSize="16" Grid.Row="14" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="14" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck Replace M:" FontSize="15" Grid.Row="15" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="15" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck Replace B:" FontSize="16" Grid.Row="16" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="16" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="Pool Deck Replace MIN:" FontSize="17" Grid.Row="17" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="17" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="SideWalk:" FontSize="16" Grid.Row="18" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="18" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="SideWalk Replace:" FontSize="16" Grid.Row="19" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="19" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkReplaceGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                        <Label Text="GarageCap:" FontSize="16" Grid.Row="20" Grid.Column="0" VerticalOptions="Center"/>
+                        <Entry Grid.Row="20" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_GarageCapGreen}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+
+    </ContentPage>
+
+    <ContentPage Title="Yellow">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem   Name="Save and Return" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+    </ContentPage.ToolbarItems>
+
+        <StackLayout>
+            <ScrollView>
+                <Grid x:Name="clientGrid" RowSpacing="0" ColumnSpacing="0" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Driveway M:"  FontSize="16" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="0" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DrivewayYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway B:" FontSize="16"  Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DrivewayYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway MIN:"  FontSize="16" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DrivewayYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace M:" FontSize="16" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="3" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DriveReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace B:" FontSize="16" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="4" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DriveReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace MIN:" FontSize="16" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="5" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DriveReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio M:" FontSize="16" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="6" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio B:" FontSize="16" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="7" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio MIN:" FontSize="16" Grid.Row="8" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="8" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace M:" FontSize="16" Grid.Row="9" Grid.Column="0" VerticalOptions="Center" />
+                    <Entry Grid.Row="9" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace B:" FontSize="16" Grid.Row="10" Grid.Column="0" VerticalOptions="Center" />
+                    <Entry Grid.Row="10" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace MIN:" FontSize="16" Grid.Row="11" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="11" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck M:" FontSize="16" Grid.Row="12" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="12" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck B:" FontSize="16" Grid.Row="13" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="13" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck MIN:" FontSize="16" Grid.Row="14" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="14" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck Replace M:" FontSize="16" Grid.Row="15" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="15" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck Replace B:" FontSize="16" Grid.Row="16" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="16" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck Replace MIN:" FontSize="16" Grid.Row="17" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="17" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="SideWalk:" FontSize="16" Grid.Row="18" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="18" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="SideWalk Replace:" FontSize="16" Grid.Row="19" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="19" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkReplaceYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="GarageCap:" FontSize="16" Grid.Row="20" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="20" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_GarageCapYellow}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+                    
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Red">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem   Name="Save and Return" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+        </ContentPage.ToolbarItems>
+
+        <StackLayout>
+            <ScrollView>
+                <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Driveway M:"  FontSize="16" Grid.Row="0" Grid.Column="0"  VerticalOptions="Center"/>
+                    <Entry Grid.Row="0" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DrivewayRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway B:"  FontSize="16" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" />
+                    <Entry Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DrivewayRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway MIN:" FontSize="16" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DrivewayRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace M:" FontSize="16" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="3" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_DriveReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace B:" FontSize="16" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="4" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_DriveReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Driveway Replace MIN:" FontSize="16" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="5" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_DriveReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio M:" FontSize="16" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="6" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio B:" FontSize="16" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="7" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio MIN:" FontSize="16" Grid.Row="8" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="8" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace M:" FontSize="16" Grid.Row="9" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="9" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PatioReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace B:" FontSize="16" Grid.Row="10" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="10" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PatioReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Patio Replace MIN:" FontSize="16" Grid.Row="11" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="11" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PatioReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck M:" FontSize="16" Grid.Row="12" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="12" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck B:" FontSize="16" Grid.Row="13" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="13" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck MIN:" FontSize="16" Grid.Row="14" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="14" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck Replace M:" FontSize="16" Grid.Row="15" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="15" Grid.Column="1" FontSize="12" Text="{Binding Prices.M_PooldeckReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"> </Entry>
+
+                    <Label Text="Pool Deck Replace B:" FontSize="16" Grid.Row="16" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="16" Grid.Column="1" FontSize="12" Text="{Binding Prices.B_PooldeckReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Pool Deck Replace MIN:" FontSize="16" Grid.Row="17" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="17" Grid.Column="1" FontSize="12" Text="{Binding Prices.MIN_PooldeckReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="SideWalk:" FontSize="16" Grid.Row="18" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="18" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="SideWalk Replace:" FontSize="16" Grid.Row="19" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="19" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_SidewalkReplaceRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="GarageCap:" FontSize="16" Grid.Row="20" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="20" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_GarageCapRed}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Attributes">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem   Name="Save and Return" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+        </ContentPage.ToolbarItems>
+
+        <StackLayout>
+            <ScrollView>
+                <Grid RowSpacing="0" ColumnSpacing="0" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Curb Cost :" FontSize="16" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="0" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Curb}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="CurbReplace:" FontSize="16" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_CurbReplace}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="AddFill:" FontSize="16" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="2" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_AddFill}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Footing:" FontSize="16" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="3" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Footing}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="ConcreteBreakout:" FontSize="16" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="4" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_ConcreteBreakout}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Sawcut:" FontSize="16" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="5" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Sawcut}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="RemoveFill:" FontSize="16" Grid.Row="6" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="6" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_RemoveFill}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="WoodDeckRemoval:" FontSize="16" Grid.Row="7" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="7" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_WoodDeckRemoval}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="BrickLedge:" FontSize="16" Grid.Row="8" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="8" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_BrickLedge}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="ThickenedEdge:" FontSize="16" Grid.Row="9" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="9" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_ThickenedEdge}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="6gWire:" FontSize="16" Grid.Row="10" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="10" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_6gWire}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="HighwayMat:" FontSize="16" Grid.Row="11" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="11" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_HighwayMat}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="4000PSI:" FontSize="16" Grid.Row="12" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="12" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_4000PSI}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Fiber:" FontSize="16" Grid.Row="13" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="13" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Fiber}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="ExposedAggregate:" FontSize="16" Grid.Row="14" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="14" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_ExposedAggregate}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="NarrowDrive1:" FontSize="16" Grid.Row="15" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="15" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_NarrowDrive1}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="NarrowDrive2:" FontSize="16" Grid.Row="16" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="16" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_NarrowDrive2}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="NarrowDrive3:" FontSize="16" Grid.Row="17" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="17" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_NarrowDrive3}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="FillRemoved1:" FontSize="16" Grid.Row="18" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="18" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_FillRemoved1}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="FillRemoved2:" FontSize="16" Grid.Row="19" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="19" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_FillRemoved2}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Thick5Inches:" FontSize="16" Grid.Row="20" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="20" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Thick5Inches}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="Thick6Inches:" FontSize="16" Grid.Row="21" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="21" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_Thick6Inches}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="12x8With_2numb5s:" FontSize="16" Grid.Row="22" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="22" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_12x8With_2numb5s}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="12x12With_4numb5s:" FontSize="16" Grid.Row="23" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="23" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_12x12With_4numb5s}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="12x14With_4numb5s:" FontSize="16" Grid.Row="24" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="24" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_12x14With_4numb5s}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+
+                    <Label Text="ThinSidewalk:" FontSize="16" Grid.Row="25" Grid.Column="0" VerticalOptions="Center"/>
+                    <Entry Grid.Row="25" Grid.Column="1" FontSize="12" Text="{Binding Prices.Cost_ThinSidewalk}" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

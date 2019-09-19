@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="CMPS_285.AttributePage"
+             Title="Edit Options/Attribute Page"
+             x:Name="YourView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   Name="Save" Order="Primary" Priority="0" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+
+
+            <Grid x:Name="controlGrid2" RowSpacing="0" ColumnSpacing="4" Margin="0" IsVisible="{Binding CustomOrNormal}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="195" />
+
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text = "Select Option:" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
+                <Picker  ItemsSource="{Binding CunstructionJobList}" SelectedItem="{Binding Job.Option}" Title="Select Job Option" Grid.Row="0" Grid.Column="1" FontSize="Small" IsVisible="{Binding ClientVisible}">
+                    <Picker.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="SelectedIndexChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding JobOptionChangedCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Picker.Behaviors>
+                </Picker>
+
+                <Label Text = "{Binding Job.TypeorLengthLabel}" Grid.Row="1" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}" />
+                <Editor Text="{Binding Job.Size}"  MaxLength="35" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" FontSize="Small" IsVisible="{Binding ClientVisible}">
+                    <Editor.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="TextChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding EntryChangeCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Editor.Behaviors>
+                </Editor>
+
+                
+
+                <Label Text = "{Binding Job.PricePerorWidthLabel}" Grid.Row="2" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+                <Editor Text="{Binding Job.PricePer}"  MaxLength="35" Grid.Row="2" Grid.Column="1" FontSize="Small" Keyboard="Numeric" IsVisible="{Binding ClientVisible}">
+                    <Editor.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="TextChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding EntryChangeCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Editor.Behaviors>
+                </Editor>
+
+
+                <Label Text = "{Binding Job.QuantityLabel}" Grid.Row="3" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+                <Label Text="{Binding Job.Quantity}" Grid.Row="3" Grid.Column="1" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+
+
+                <Label Text = "Total: " Grid.Row="4" Grid.Column="0" FontSize="Medium"/>
+                <Label Text = "{Binding Job.FormattedTotal}" Grid.Row="4" Grid.Column="1" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+
+               
+                <Label Text = "{Binding ErrorMsgOptionName}"  Grid.Row="5" Grid.Column="0" FontSize="Small" TextColor="Red" IsVisible="{Binding ErrorOptionNameVis}"/>
+
+            </Grid>
+
+            
+            
+
+            <ContentView BackgroundColor="#f2f6f7" Padding="25" IsVisible="{Binding AttributeAddVisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="180" WidthRequest="300" BackgroundColor="#f2f6f7">
+                        <Picker Title="Select Job Option" ItemsSource="{Binding AttributeNameList}" 
+                                IsVisible="{Binding CustomAttributeVis}"  SelectedItem="{Binding NewAttributeName.AttributeName, Mode=TwoWay}"
+                                >
+                        </Picker>
+                       
+                        <Button Margin="20,0,20,0" Text="Ok" Command="{Binding OkAttributeCommand}"></Button>
+
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+            
+
+            <ListView ItemsSource="{Binding TempAttributeList}" IsVisible="{Binding CustomAttributeVis}" HasUnevenRows="True" >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="White" >
+                                <Grid RowSpacing="1" ColumnSpacing="1" Margin="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20" />
+
+                                        <RowDefinition Height="20" />
+         
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Attribute Name: " TextColor="Black"  Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding AttributeName}"  Grid.Row="0" Grid.Column="1"/>
+                                    <Label Text="Attribute Cost: " TextColor="Black"  Grid.Row="1" Grid.Column="0"/>
+
+                                </Grid>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                                
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+          
+            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="4" Margin="15" IsVisible="{Binding IsNormal}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="195" />
+
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text = "Option Name:" Grid.Row="0" Grid.Column="0" FontSize="Medium" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                <Editor Text="{Binding Job.Option}"  Grid.Row="0" Grid.Column="1" FontSize="Small" IsVisible="{Binding ClientVisible}"/>
+
+                <Label Text = "{Binding Job.TypeorLengthLabel}" Grid.Row="1" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}" />
+                <Editor Text="{Binding Job.Size}" x:Name="unitEntry" MaxLength="35" Grid.Row="1" Grid.Column="1" FontSize="Small" IsVisible="{Binding ClientVisible}"/>
+
+                <Label Text = "{Binding Job.PricePerorWidthLabel}" Grid.Row="2" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}"></Label>
+                <Editor Text="{Binding Job.PricePer}" x:Name="pricePerEntry" MaxLength="35" Grid.Row="2" Grid.Column="1" FontSize="Small" Keyboard="Numeric" IsVisible="{Binding ClientVisible}">
+                    <Editor.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="TextChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding EntryPricePerChangeCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Editor.Behaviors>
+                </Editor>
+
+                    
+                <Label Text = "{Binding Job.QuantityLabel}" Grid.Row="3" Grid.Column="0" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+                <Editor Text="{Binding Job.Quantity}" x:Name="quantityEntry" MaxLength="35" Grid.Row="3" Grid.Column="1" FontSize="Small" Keyboard="Numeric" IsVisible="{Binding ClientVisible}">
+                    <Editor.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="TextChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding EntryPricePerChangeCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Editor.Behaviors>
+                </Editor>
+
+               
+
+                <Label Text = "Total: " Grid.Row="4" Grid.Column="0" FontSize="Medium"/>
+                <Label Text = "{Binding Job.FormattedTotal}" Grid.Row="4" Grid.Column="1" FontSize="Medium" IsVisible="{Binding ClientVisible}"/>
+                
+
+                <Label Text = "{Binding ErrorMsgOptionName}"  Grid.Row="5" Grid.Column="0" FontSize="Small" TextColor="Red"  IsVisible="{Binding ErrorOptionNameVis}"/>
+
+            </Grid>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

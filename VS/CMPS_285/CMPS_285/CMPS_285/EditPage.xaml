@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:viewModel1="clr-namespace:CMPS_285"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="CMPS_285.EditPage"
+             Title="{Binding TitleName}" 
+             x:Name="YourView">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   Name="Save and Return" Order="Primary" Priority="0" Command="{Binding SaveCommand}"  />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="#e4edf2">
+            <ContentView>
+                <StackLayout>
+                 <Label Text="{Binding Client.ColorText}" HorizontalTextAlignment="Center" FontSize="32" TextColor="{Binding Client.Color}"/>
+                    <Slider Minimum="0" Maximum="1" MinimumTrackColor="{Binding Client.Color}" MaximumTrackColor="{Binding Client.Color}" Value="{Binding ColorValue}" Margin="60, 0, 60,0">
+                    <Slider.Behaviors>
+                        <behaviors:EventHandlerBehavior EventName="ValueChanged">
+
+                            <behaviors:InvokeCommandAction Command="{Binding SliderChangedCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                        <behaviors:EventHandlerBehavior EventName="DragCompleted">
+
+                            <behaviors:InvokeCommandAction Command="{Binding SliderCompletedCommand}"/>
+
+                        </behaviors:EventHandlerBehavior>
+                    </Slider.Behaviors>
+                </Slider>
+                </StackLayout>
+            </ContentView>
+
+            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1" Margin="15" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text = "All Jobs Total: " Grid.Row="0" Grid.Column="0" FontSize="Small" />
+                <Label Text="{Binding FormattedClientTotal}" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" FontSize="Small" IsVisible="{Binding ListVisible}"/>
+            </Grid>
+            
+            
+
+                <RelativeLayout HorizontalOptions="FillAndExpand">
+                    <Button Text="ADD JOB OPTION" HorizontalOptions="Fill" Command="{Binding AddCommand}" BackgroundColor="#a8dadc" RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,Property=Width,Factor=.0000,Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,Factor=.4800,Constant=0}"/>
+                    <Button Text="ADD CUSTOM OPTION" HorizontalOptions="Fill" Command="{Binding AddCustomCommand}" BackgroundColor="#a8dadc" RelativeLayout.XConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Width,Factor=.5000,Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,Factor=.5000,Constant=0}"/>
+                </RelativeLayout>
+
+
+            <ContentView BackgroundColor="#f2f6f7" Padding="25" IsVisible="{Binding ItIsVisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="180" WidthRequest="300" BackgroundColor="#f2f6f7">
+                        <Picker x:Name="pickerJob" Title="Select Job Option" ItemsSource="{Binding CunstructionJobList}" SelectedItem="{Binding NewJobName.Option}"></Picker>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding ErrorMsgName}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding ErrorNameVisible}"/>
+                        </StackLayout>
+                        <Button Margin="20,0,20,0" Text="OK" Command="{Binding OkCommand}"></Button>
+                        <Button Margin="20,0,20,0" Text="Cancel" Command="{Binding CancelCommand}"></Button>
+
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+            <ContentView BackgroundColor="#f2f6f7" Padding="25" IsVisible="{Binding SecondEntry}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="200" BackgroundColor="#f2f6f7">
+
+                        <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Entry  Placeholder="Enter Length      " Text="{Binding NewJobName.Size}" Keyboard="Numeric"></Entry>
+                            <Label Text="ft" FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="{Binding ErrorMsgLength}" TextColor="Red" IsVisible="{Binding ErrorLengthVisible}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Entry Placeholder="Enter Width       " Text="{Binding NewJobName.PricePer}" IsVisible="{Binding WidthVisible}" Keyboard="Numeric"></Entry>
+                            <Label Text="ft" FontSize="Medium" IsVisible="{Binding WidthVisible}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="{Binding ErrorMsgWidth}" TextColor="Red" IsVisible="{Binding ErrorWidthVisible}"/>
+                        </StackLayout>
+                        
+                        <Button Margin="20,0,20,0" Text="OK" Command="{Binding Ok2Command}" Grid.Row="4" Grid.Column="0"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+            <ContentView BackgroundColor="#f2f6f7" Padding="25" IsVisible="{Binding ItCustomIsVisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="390" WidthRequest="300" BackgroundColor="#f2f6f7">
+                        
+                        <Entry Placeholder="Enter Option Name" Text="{Binding NewJobName.Option}"></Entry>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding ErrorMsgOptionName}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding ErrorOptionNameVis}"/>
+                        </StackLayout>
+                        
+                        <Entry Placeholder="Enter Unit Type" Text="{Binding NewJobName.Size}"></Entry>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding ErrorMsgType}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding ErrorOptionTypeVis}"/>
+                        </StackLayout>
+                        
+                        <Entry Placeholder="Enter Price Per Unit" Text="{Binding NewJobName.PricePer}" Keyboard="Numeric"></Entry>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding ErrorMsgPer}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding ErrorPricePerVis}"/>
+                        </StackLayout>
+                        
+                        <Entry Placeholder="Enter Unit Quantity" Text="{Binding NewJobName.Quantity}" Keyboard="Numeric"></Entry>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding ErrorMsgQuantity}" TextColor="Red" Grid.Row="1" Grid.Column="0" IsVisible="{Binding ErrorQuantityVis}"/>
+                        </StackLayout>
+                        
+                        <Button Margin="0" Text="OK" Command="{Binding OkCustomCommand}"></Button>
+                        <Button Margin="0" Text="Cancel" Command="{Binding CancelCustomCommand}"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+            <ListView ItemsSource="{Binding JobNameList}" IsVisible="{Binding ListVisible}" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Spacing="4" Padding="5" BackgroundColor="#99FFFFFF" >
+                            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1" Margin="15" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="150" />
+                                    </Grid.ColumnDefinitions>
+
+                          
+                                <Label Text="Job Name: " TextColor="Black"  Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding Option}" TextColor="{Binding Color}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding TypeorLengthLabel}" TextColor="Black" Grid.Row="1" Grid.Column="0" />
+                                <Label Text="{Binding Size}" Grid.Row="1" Grid.Column="1" />
+                                <Label Text="{Binding PricePerorWidthLabel}" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+                                <Label Text="{Binding PricePer}" Grid.Row="2" Grid.Column="1" />
+                                <Label Text="{Binding QuantityLabel}" TextColor="Black" Grid.Row="3" Grid.Column="0" />
+                                <Label Text="{Binding Quantity}" Grid.Row="3" Grid.Column="1"  />
+                                <Label Text="Total: " TextColor="Black" Grid.Row="4" Grid.Column="0" />
+                                 <Label Text="{Binding FormattedTotal}" Grid.Row="4" Grid.Column="1"  />
+                            </Grid>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+
+                                <MenuItem  Command="{Binding Path=BindingContext.AttributeCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Edit/Attributes" />
+                                <MenuItem Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference YourView}}"  CommandParameter="{Binding .}"
+               Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+           
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
